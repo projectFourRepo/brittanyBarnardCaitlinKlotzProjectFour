@@ -17,28 +17,58 @@ makeupApp.getMakeup = function() {
 makeupApp.makeupPromise = () => {
     //create a constant to store our ajax call
     const makeupProducts = makeupApp.getMakeup();
-    console.log("eyeliner", makeupProducts);
+    console.log("Inside makeup promise", makeupProducts);
 
     //get promise back
-
     $.when(makeupProducts).then((result) => {
         console.log(result);
-    })
+
+        makeupApp.displayMakeup(result);
+    }).fail((error) => {
+        console.log(error);
+    });
 } 
 
 //get input (event listener)
-makeupApp.displayMakeup = function() {
-    //listen for submit
-    $("#searchButton").on("click", function(e){
-        e.preventDefault();
-        //store value in text field in a variable
-        const searchInput = $("#makeupSearch").val();
-        console.log(searchInput);
+makeupApp.displayMakeup = function(makeupItems) {
+    const products = makeupItems;
+    console.log(products);
+    
+    //store user search value in text field in a variable
+    const searchInput = $("#makeupSearch").val();
+    console.log(searchInput);
+
+    // NOTE
+        // when the user selects one of the items in the drop down menu:
+            // compare the id of the item to value of product_type
+            // display the products that have the same product_type value
+    // REVIEW
+        // event listener:
+            // how does the event listener know which item has been selected
+                // UNLESS we're actually using a SELECT menu (like the monkey art code along)
+            // have the event listener on the container for the li's/buttons?
+
+
+    // products.forEach((product) => {
+        //     console.log(product);
+        // })
+
+
         //pass variable through relevant param
         //compare search input available params
-            //to the lowercase value
-            makeupApp.makeupPromise();
-    })
+        //to the lowercase value
+
+
+
+        // compare searchInput to product_type
+
+    //display input on page
+//print search on page param(stretch)
+//display results with tags (stretch)
+    //create html for the results
+        //img
+        //price
+        //name
 
 }
 
@@ -55,13 +85,7 @@ makeupApp.displayMakeup = function() {
 
 
     
-//display input on page
-//print search on page param(stretch)
-//display results with tags (stretch)
-    //create html for the results
-        //img
-        //price
-        //name
+
 
 //STRETCH:
 //create <p> tag
@@ -70,17 +94,29 @@ makeupApp.displayMakeup = function() {
 //display number in each result
 //buy now button
 
+// drop down with search
+
+// create an event listener to listen for when a search item has been clicked on
+makeupApp.createEventListeners = function() {
+    //listen for submit
+    $("#searchButton").on("click", function (e) {
+        e.preventDefault();
+        
+        // retrieve promise from ajax call
+        makeupApp.makeupPromise();
+        // display makeup on the page
+        makeupApp.displayMakeup();
+    })
+}
+
+
 //initialize app
 makeupApp.init = function() {
-    // console.log("initialized:)");
-    makeupApp.getMakeup();
-    makeupApp.displayMakeup();
+    makeupApp.createEventListeners();
 }
 
 //make the doc ready
 $(function() {
-    // console test
-    console.log("I'm ready!");
     //call init
     makeupApp.init();
 });
