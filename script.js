@@ -47,6 +47,12 @@ makeupApp.displayMakeup = function(makeupItems) {
             // how does the event listener know which item has been selected
                 // UNLESS we're actually using a SELECT menu (like the monkey art code along)
             // have the event listener on the container for the li's/buttons?
+            // $("li").on("click", function() {})
+                // have the ids as values for the li's as well
+                // store $(this).val() in a variable
+                    // THEN compare to API
+                    // this value can be stored inside of the event listener, and then called upon inside of the displayMakeup method because they should be within the same scope
+                // no need to prevent default
 
 
     // products.forEach((product) => {
