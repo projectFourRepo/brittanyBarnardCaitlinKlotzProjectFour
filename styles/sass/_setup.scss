@@ -12,6 +12,15 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
     padding: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
+img {
+    width: 80%;
+    height: auto;
+}
+
 .container {
     width: 90%;
     max-width: 1400px;

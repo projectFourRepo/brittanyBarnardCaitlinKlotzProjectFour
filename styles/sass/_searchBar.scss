@@ -1,0 +1,35 @@
+.searchHeading {
+    background: $cadetBlueCrayola;
+
+    h2 {
+        padding: 20px 0;
+    }
+}
+
+.searchBar {
+    height: 5vh;
+    background: $lavenderGrey;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+    border-bottom: 1px solid $lavenderGrey;
+
+    button {
+        background: transparent;
+        font-family: $bodyFont;
+        padding: 0 15px;
+        border: none;
+        border-left: 2px solid $cadetGrey;
+        border-right: 2px solid $cadetGrey;
+        cursor: pointer;
+
+        &:hover, &:focus, &:active {
+            background: $white;
+            color: $persianIndigo;
+            border-color: $persianIndigo;
+        }
+    }
+}

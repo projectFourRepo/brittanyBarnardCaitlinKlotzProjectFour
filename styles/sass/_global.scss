@@ -1,11 +1,13 @@
 // COLOUR VARIABLES
-$persianIndigo: #320d6d;
-$lavenderWeb: #d9dbf1;
 $lavenderGrey: #d0cdd7;
 $cadetBlueCrayola: #acb0bd;
-$tealBlue: #007991;
 $rubyRed: #a30015;
 $cadetGrey: #95a3b3;
+$white: #ffffff;
+
+$persianIndigo: #320d6d;
+$lavenderWeb: #d9dbf1;
+$tealBlue: #007991;
 
 // FONTS
 $headingFont: 'Montserrat', sans-serif;
@@ -13,6 +15,7 @@ $bodyFont: 'Crimson Pro', serif;
 
 body {
     font-family: $bodyFont;
+    font-size: 1.8rem;
 }
 
 h1, h2, h3, h4 {
@@ -20,16 +23,27 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-img {
-    width: 100%;
-    height: auto;
+header {
+    display: flex;
+    align-items: center;
+    height: 60vh;
+    background: $rubyRed;
+    color: $white;
+    font-size: 5rem;
 }
 
 footer {
     text-align: center;
+    background: $rubyRed;
+    padding: 10px;
+    color: $white;
 
     a {
         text-decoration: none;
         color: inherit;
+
+        &:hover, &focus {
+        text-decoration: underline;
+        }
     }
 }

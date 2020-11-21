@@ -231,6 +231,15 @@ html {
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+img {
+  width: 80%;
+  height: auto;
+}
+
 .container {
   width: 90%;
   max-width: 1400px;
@@ -239,6 +248,7 @@ html {
 
 body {
   font-family: "Crimson Pro", serif;
+  font-size: 1.8rem;
 }
 
 h1, h2, h3, h4 {
@@ -246,18 +256,73 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
 }
 
-img {
-  width: 100%;
-  height: auto;
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 60vh;
+  background: #a30015;
+  color: #ffffff;
+  font-size: 5rem;
 }
 
 footer {
   text-align: center;
+  background: #a30015;
+  padding: 10px;
+  color: #ffffff;
 }
 
 footer a {
   text-decoration: none;
   color: inherit;
+}
+
+footer a:hover, footer afocus {
+  text-decoration: underline;
+}
+
+.searchHeading {
+  background: #acb0bd;
+}
+
+.searchHeading h2 {
+  padding: 20px 0;
+}
+
+.searchBar {
+  height: 5vh;
+  background: #d0cdd7;
+}
+
+.buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 5vh;
+  border-bottom: 1px solid #d0cdd7;
+}
+
+.buttonContainer button {
+  background: transparent;
+  font-family: "Crimson Pro", serif;
+  padding: 0 15px;
+  border: none;
+  border-left: 2px solid #95a3b3;
+  border-right: 2px solid #95a3b3;
+  cursor: pointer;
+}
+
+.buttonContainer button:hover, .buttonContainer button:focus, .buttonContainer button:active {
+  background: #ffffff;
+  color: #320d6d;
+  border-color: #320d6d;
 }
 
 .makeupGallery {
@@ -266,8 +331,35 @@ footer a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: 30vh;
 }
 
 .makeupGallery .searchItem {
-  width: calc(100%/3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: calc(100%/3 - 40px);
+  margin: 20px;
+  border: 1px solid #007991;
+  color: #a30015;
+}
+
+.makeupGallery .searchItem img {
+  margin: 0 auto 5px;
+  border: 1px solid #d9dbf1;
+}
+
+.makeupGallery .searchItem h3, .makeupGallery .searchItem h4 {
+  border: 1px solid #d9dbf1;
+}
+
+.makeupGallery .searchItem p {
+  border: 1px solid #d9dbf1;
 }

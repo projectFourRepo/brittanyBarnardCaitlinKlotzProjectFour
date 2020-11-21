@@ -43,16 +43,16 @@ makeupApp.displayMakeup = function(makeupItems, search) {
     $(".makeupGallery").html("");
 
     //move through array to find product_type property inside each object
-    products.filter((product) => {
+    products.filter((product, index) => {
         if (product.product_type === searchItem){
             const htmlProduct = `
                 <div class="searchItem">
                     <img src="${product.image_link}" alt="${product.description}">
                     <h3>${product.brand}</h3>
                     <h4>${product.name}</h4>
-                    <p>${product.description}</p>
+                    <!-- <p class="description">${product.description}</p> -->
                     <p>${product.tag_list}</p>
-                    <p>${product.product_colors}</p>
+                    <!-- <p>${product.product_colors.map(function(index) {return `product.product_colors[${index}].hex_value`})} ${product.product_colors.map(function() {return ".color_names"})}</p> -->
                     <p>${product.price_sign} ${product.price} ${product.currency}</p>
                     <p>${product.rating}</p>
                 </div>
