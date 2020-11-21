@@ -14,50 +14,49 @@ makeupApp.getMakeup = function() {
 }
 
 //store promise
-makeupApp.makeupPromise = () => {
+makeupApp.makeupPromise = (search) => {
     //create a constant to store our ajax call
     const makeupProducts = makeupApp.getMakeup();
     console.log("Inside makeup promise", makeupProducts);
-
+    
+    //storing search item so it can be passed through display makeup method
+    const searchItems = search;
     //get promise back
     $.when(makeupProducts).then((result) => {
         console.log(result);
 
-        makeupApp.displayMakeup(result);
+        makeupApp.displayMakeup(result, searchItems);
     }).fail((error) => {
         console.log(error);
     });
 } 
 
-//get input (event listener)
-makeupApp.displayMakeup = function(makeupItems) {
+//display makeup on the page
+makeupApp.displayMakeup = function(makeupItems, search) {
     const products = makeupItems;
     console.log(products);
-    
-    //store user search value in text field in a variable
-    const searchInput = $("#makeupSearch").val();
-    console.log(searchInput);
 
-    // NOTE
-        // when the user selects one of the items in the drop down menu:
-            // compare the id of the item to value of product_type
-            // display the products that have the same product_type value
-    // REVIEW
-        // event listener:
-            // how does the event listener know which item has been selected
-                // UNLESS we're actually using a SELECT menu (like the monkey art code along)
-            // have the event listener on the container for the li's/buttons?
-            // $("li").on("click", function() {})
-                // have the ids as values for the li's as well
-                // store $(this).val() in a variable
-                    // THEN compare to API
-                    // this value can be stored inside of the event listener, and then called upon inside of the displayMakeup method because they should be within the same scope
-                // no need to prevent default
+    const searchItem = search;
+    console.log(searchItem);
 
-
-    // products.forEach((product) => {
-        //     console.log(product);
-        // })
+    //move through array to find product_type property inside each object
+    products.filter((product) => {
+        if (product.product_type === searchItem){
+            const htmlProduct = `
+                <div>
+                    <img src="${product.image_link}" alt="${product.description}">
+                    <h3>${product.brand}</h3>
+                    <h4>${product.name}</h4>
+                    <p>${product.description}</p>
+                    <p>${product.tag_list}</p>
+                    <p>${product.product_colors}</p>
+                    <p>${product.price_sign} ${product.price} ${product.currency}</p>
+                    <p>${product.rating}</p>
+                </div>
+            `;
+            $(".makeupGallery").append(htmlProduct);
+        }
+    });
 
 
         //pass variable through relevant param
@@ -105,13 +104,17 @@ makeupApp.displayMakeup = function(makeupItems) {
 // create an event listener to listen for when a search item has been clicked on
 makeupApp.createEventListeners = function() {
     //listen for submit
-    $("#searchButton").on("click", function (e) {
+    $("button").on("click", function(e) {
         e.preventDefault();
+
+        const searchItems = $(this).val();
+        console.log(searchItems);
+
+
         
         // retrieve promise from ajax call
-        makeupApp.makeupPromise();
-        // display makeup on the page
-        makeupApp.displayMakeup();
+        makeupApp.makeupPromise(searchItems);
+
     })
 }
 
