@@ -39,6 +39,9 @@ makeupApp.displayMakeup = function(makeupItems, search) {
     const searchItem = search;
     console.log(searchItem);
 
+    //empty makeup gallery before returning next search
+    $(".makeupGallery").html("");
+
     //move through array to find product_type property inside each object
     products.filter((product) => {
         if (product.product_type === searchItem){
