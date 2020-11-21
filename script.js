@@ -46,7 +46,7 @@ makeupApp.displayMakeup = function(makeupItems, search) {
     products.filter((product) => {
         if (product.product_type === searchItem){
             const htmlProduct = `
-                <div>
+                <div class="searchItem">
                     <img src="${product.image_link}" alt="${product.description}">
                     <h3>${product.brand}</h3>
                     <h4>${product.name}</h4>

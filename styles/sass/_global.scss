@@ -1,0 +1,35 @@
+// COLOUR VARIABLES
+$persianIndigo: #320d6d;
+$lavenderWeb: #d9dbf1;
+$lavenderGrey: #d0cdd7;
+$cadetBlueCrayola: #acb0bd;
+$tealBlue: #007991;
+$rubyRed: #a30015;
+$cadetGrey: #95a3b3;
+
+// FONTS
+$headingFont: 'Montserrat', sans-serif;
+$bodyFont: 'Crimson Pro', serif;
+
+body {
+    font-family: $bodyFont;
+}
+
+h1, h2, h3, h4 {
+    font-family: $headingFont;
+    text-transform: uppercase;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}

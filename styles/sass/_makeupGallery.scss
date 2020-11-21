@@ -1,0 +1,8 @@
+.makeupGallery {
+    display: flex;
+    flex-wrap: wrap;
+
+    .searchItem {
+        width: calc(100%/3);
+    }
+}

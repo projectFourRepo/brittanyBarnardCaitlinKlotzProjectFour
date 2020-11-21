@@ -6,56 +6,54 @@
     <title>Brittany Barnard and Caitlin Klotz - Project Four</title>
 
     <!-- stylesheets -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Montserrat:wght@400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     
     <header>
 
-        <h1>Makeup App</h1>
+        <div class="container">
+            <h1>Makeup App</h1>
+        </div>
 
 
     </header>
 
     <main>
-        <section class="dropDownMenu">
+        <!-- FOR LATER: STREEEEEEETCH -->
+        <!-- <form action="">
+            <label for="makeupSearch">Search</label>
+            COMMENT: font awesome magnifying glass in search bar
+            COMMENT: TODO drop down menu instead of search bar because better
+            <input type="text" id="makeupSearch" placeholder="Search products">
+            <input type="submit" id="SearchButton" value="Search">
+        </form> -->
+
+        <section class="searchBar container">
             <!-- button to drop down menu -->
-            <p>Search</p>
-            <button id="searchButton">Arrow Icon</button>
+            <p>Search Your Product:</p>
             <div>
-                    <button id="blush" value="blush">Blush</button>
-                    <button id="bronzer" value="bronzer">Bronzer</button>
-                    <button id="foundation" value="foundation">Foundation</button>
-                    <button id="eyeliner" value="eyeliner">Eyeliner</button>
-                    <button id="eyeshadow" value="eyeshadow">Eyeshadow</button>
-                    <button id="mascara" value="mascara">Mascara</button>
-                    <button id="eyebrow" value="eyebrow">Eyebrow</button>
-                    <button id="lip_liner" value="lip_liner">Lip Liner</button>
-                    <button id="lipstick" value="lipstick">Lipstick</button>
+                <button id="blush" value="blush">Blush</button>
+                <button id="bronzer" value="bronzer">Bronzer</button>
+                <button id="foundation" value="foundation">Foundation</button>
+                <button id="eyeliner" value="eyeliner">Eyeliner</button>
+                <button id="eyeshadow" value="eyeshadow">Eyeshadow</button>
+                <button id="mascara" value="mascara">Mascara</button>
+                <button id="eyebrow" value="eyebrow">Eyebrow</button>
+                <button id="lip_liner" value="lip_liner">Lip Liner</button>
+                <button id="lipstick" value="lipstick">Lipstick</button>
             </div>
 
         </section>
 
-
-
-
-
-
-
-        <form action="">
-            <label for="makeupSearch">Search</label>
-            <!-- font awesome magnifying glass in search bar -->
-            <!-- TODO drop down menu instead of search bar because better -->
-            <input type="text" id="makeupSearch" placeholder="Search products">
-            <input type="submit" id="SearchButton" value="Search">
-        </form>
-
-        <section class="makeupGallery">
+        <section class="makeupGallery container">
             <!-- dynamically added through js -->
             <!-- this heading will contain the search product_type -->
             <h2 class="productType"></h2>
-
-
         </section>
     </main>
 
