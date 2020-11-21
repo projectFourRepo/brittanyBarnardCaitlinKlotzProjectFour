@@ -9,20 +9,16 @@
         justify-content: flex-end;
         width: calc(100%/3 - 40px);
         margin: 20px;
-        border: 1px solid $tealBlue;
-        color: $rubyRed;
+        color: $white;
+
+        h3, h4, p {
+            background-color: $rubyRed;
+        }
 
         img {
             margin: 0 auto 5px;
-            border: 1px solid $lavenderWeb;
-        }
-
-        h3, h4 {
-            border: 1px solid $lavenderWeb;
-        }
-
-        p {
-            border: 1px solid $lavenderWeb;
+            color: $black;
+            // border: 1px solid $lavenderWeb;
         }
     }
 }
