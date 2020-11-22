@@ -10,28 +10,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Montserrat:wght@400;600&display=swap"
         rel="stylesheet">
+    <!-- external stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     
     <header>
-
         <div class="container">
             <h1>B & C Makeup</h1>
         </div>
-
-
     </header>
 
     <main>
-        <!-- FOR LATER: STREEEEEEETCH -->
-        <!-- <form action="">
-            <label for="makeupSearch">Search</label>
-            COMMENT: font awesome magnifying glass in search bar
-            COMMENT: TODO drop down menu instead of search bar because better
-            <input type="text" id="makeupSearch" placeholder="Search products">
-            <input type="submit" id="SearchButton" value="Search">
-        </form> -->
         <section class="searchHeading">
             <div class="container">
                 <h2>Pick Your Product:</h2>
@@ -58,7 +48,13 @@
         <section class="makeupGallery container">
             <!-- this heading will contain the search product_type -->
             <h2 class="productType"></h2>
-                <!-- dynamically added through js -->
+            <div class="showLoadingIcon" id="showLoadingIcon">
+                <!-- add a loading icon -->
+                <div class="loadingIcon"></div>
+                <p>Loading...</p>
+            </div>
+            <!-- dynamically added through js -->
+            <div class="makeupContainer"></div>
         </section>
     </main>
 

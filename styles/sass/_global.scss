@@ -1,12 +1,13 @@
 // COLOUR VARIABLES
+$persianIndigo: #320d6d;
 $lavenderGrey: #d0cdd7;
 $cadetBlueCrayola: #acb0bd;
 $rubyRed: #a30015;
 $cadetGrey: #95a3b3;
 $white: #ffffff;
+$lightGrey: #f3f3f3;
 $black: #000000;
 
-$persianIndigo: #320d6d;
 $lavenderWeb: #d9dbf1;
 $tealBlue: #007991;
 
@@ -30,7 +31,10 @@ header {
     height: 60vh;
     background: $rubyRed;
     color: $white;
-    font-size: 5rem;
+
+    h1 {
+        font-size: 9rem;
+    }
 }
 
 footer {

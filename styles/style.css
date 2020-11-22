@@ -266,7 +266,10 @@ header {
   height: 60vh;
   background: #a30015;
   color: #ffffff;
-  font-size: 5rem;
+}
+
+header h1 {
+  font-size: 9rem;
 }
 
 footer {
@@ -326,16 +329,34 @@ footer a:hover, footer afocus {
 }
 
 .makeupGallery {
+  min-height: 30vh;
+  padding: 20px 0;
+}
+
+.makeupGallery .showLoadingIcon .loadingIcon {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #320d6d;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  margin: 20px auto;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+}
+
+.makeupGallery .showLoadingIcon p {
+  text-align: center;
+}
+
+.makeupContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  min-height: 30vh;
-  padding: 20px 0;
 }
 
-.makeupGallery .searchItem {
+.makeupContainer .searchItem {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -351,12 +372,91 @@ footer a:hover, footer afocus {
   color: #ffffff;
 }
 
-.makeupGallery .searchItem h3, .makeupGallery .searchItem h4, .makeupGallery .searchItem p {
+.makeupContainer .searchItem h3, .makeupContainer .searchItem h4, .makeupContainer .searchItem p {
   background: #a30015;
   padding: 3px 5px;
 }
 
-.makeupGallery .searchItem img {
+.makeupContainer .searchItem img {
   margin: 0 auto 5px;
   color: #000000;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 945px) {
+  .searchBar, .buttonContainer {
+    min-height: 10vh;
+  }
+  .buttonContainer {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .buttonContainer button {
+    border-color: #d0cdd7;
+  }
+  .buttonContainer button:hover, .buttonContainer button:focus, .buttonContainer button:active {
+    border-left: 2px solid #320d6d;
+    border-right: 2px solid #320d6d;
+  }
+}
+
+@media (max-width: 894px) {
+  .makeupContainer .searchItem {
+    width: calc(100%/2 - 40px);
+  }
+}
+
+@media (max-width: 551px) {
+  header h1 {
+    font-size: 6rem;
+  }
+  .searchBar, .buttonContainer {
+    min-height: 11vh;
+  }
+  .makeupContainer .searchItem {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    height: 45vh;
+  }
+  header h1 {
+    font-size: 4rem;
+  }
+  .searchBar, .buttonContainer {
+    min-height: 22vh;
+  }
+  .buttonContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .buttonContainer button {
+    width: 50%;
+    padding: 1px 15px;
+  }
 }

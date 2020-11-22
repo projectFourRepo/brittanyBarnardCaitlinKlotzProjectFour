@@ -26,7 +26,8 @@ makeupApp.makeupPromise = (search) => {
     }).fail(() => {
         $(".makeupGallery").html("Sorry our search engine is down! Please try again later.");
         //on Sunday, we were experiencing 503 errors and it was suggested that we create some dummy data so you would be able to see how our app would work
-        $(".productType").html(searchItems);
+        const searchItem = search;
+        $(".productType").html(searchItem);
 
         for (i = 0; i < 3; i++) {
             const htmlProduct = `
@@ -37,7 +38,7 @@ makeupApp.makeupPromise = (search) => {
                     <p>$26.00CAD</p>
                 </div>
             `;
-        $(".makeupGallery").append(htmlProduct);
+        $(".makeupContainer").append(htmlProduct);
         }
     });
 } 
@@ -48,22 +49,25 @@ makeupApp.displayMakeup = function(makeupItems, search) {
     const searchItem = search;
 
     //empty makeup gallery before returning next search
-    $(".makeupGallery").html("");
+    $(".makeupContainer").html("");
+
+    // have the loadingIcon container disappear
+    $("#showLoadingIcon").hide();
 
     //set users search value to the heading in results container
-    $(".productType").html(searchItems);
+    $(".productType").text(searchItem);
     //move through array to find product_type property inside each object
-    products.filter((product, index) => {
+    products.filter((product) => {
         if (product.product_type === searchItem){
             const htmlProduct = `
                 <div class="searchItem">
                     <img src="${product.image_link}" alt="${product.description}">
                     <h3>${product.brand}</h3>
                     <h4>${product.name}</h4>
-                    <p>${product.price_sign} ${product.price.toFixed(2)} ${product.currency}</p>
+                    <p>${product.price_sign} ${product.price} ${product.currency}</p>
                 </div>
             `;
-            $(".makeupGallery").append(htmlProduct);
+            $(".makeupContainer").append(htmlProduct);
         }
     });
 
@@ -110,10 +114,10 @@ makeupApp.createEventListeners = function() {
         e.preventDefault();
 
         const searchItems = $(this).val();
+        // show the loadingIcon container
+        $("#showLoadingIcon").show();
 
         // retrieve promise from ajax call
-
-
         makeupApp.makeupPromise(searchItems);
 
     })
@@ -122,6 +126,9 @@ makeupApp.createEventListeners = function() {
 
 //initialize app
 makeupApp.init = function() {
+    // hide the loadingIcon
+    $("#showLoadingIcon").hide();
+    // call event listeners method
     makeupApp.createEventListeners();
 }
 
