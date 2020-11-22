@@ -17,30 +17,24 @@ makeupApp.getMakeup = function() {
 makeupApp.makeupPromise = (search) => {
     //create a constant to store our ajax call
     const makeupProducts = makeupApp.getMakeup();
-    console.log("Inside makeup promise", makeupProducts);
     
     //storing search item so it can be passed through display makeup method
     const searchItems = search;
     //get promise back
     $.when(makeupProducts).then((result) => {
-        console.log(result);
-
         makeupApp.displayMakeup(result, searchItems);
-    }).fail((error) => {
-        console.log(error);
+    }).fail(() => {
+        $(".makeupGallery .container").html("Sorry our search engine is down! Please try again later.");
     });
 } 
 
 //display makeup on the page
 makeupApp.displayMakeup = function(makeupItems, search) {
     const products = makeupItems;
-    console.log(products);
-
     const searchItem = search;
-    console.log(searchItem);
 
     //empty makeup gallery before returning next search
-    $(".makeupGallery").html("");
+    $(".makeupGallery .container").html("");
 
     //move through array to find product_type property inside each object
     products.filter((product, index) => {
@@ -50,23 +44,17 @@ makeupApp.displayMakeup = function(makeupItems, search) {
                     <img src="${product.image_link}" alt="${product.description}">
                     <h3>${product.brand}</h3>
                     <h4>${product.name}</h4>
-                    <!-- <p class="description">${product.description}</p> -->
-                    <p>${product.tag_list}</p>
-                    <!-- <p>${product.product_colors.map(function(index) {return `product.product_colors[${index}].hex_value`})} ${product.product_colors.map(function() {return ".color_names"})}</p> -->
-                    <p>${product.price_sign} ${product.price} ${product.currency}</p>
+                    <p>${product.price_sign} ${product.price.toFixed(2)} ${product.currency}</p>
                     <p>${product.rating}</p>
                 </div>
             `;
-            $(".makeupGallery").append(htmlProduct);
+            $(".makeupGallery .container").append(htmlProduct);
         }
     });
-
 
         //pass variable through relevant param
         //compare search input available params
         //to the lowercase value
-
-
 
         // compare searchInput to product_type
 
@@ -91,10 +79,6 @@ makeupApp.displayMakeup = function(makeupItems, search) {
 
 //take input
 
-
-    
-
-
 //STRETCH:
 //create <p> tag
     //set a starting number of stock
@@ -111,10 +95,7 @@ makeupApp.createEventListeners = function() {
         e.preventDefault();
 
         const searchItems = $(this).val();
-        console.log(searchItems);
 
-
-        
         // retrieve promise from ajax call
         makeupApp.makeupPromise(searchItems);
 
