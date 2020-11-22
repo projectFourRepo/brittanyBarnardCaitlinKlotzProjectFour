@@ -326,19 +326,16 @@ footer a:hover, footer afocus {
 }
 
 .makeupGallery {
-  min-height: 30vh;
-  padding: 20px 0;
-}
-
-.makeupGallery .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  min-height: 30vh;
+  padding: 20px 0;
 }
 
-.makeupGallery .container .searchItem {
+.makeupGallery .searchItem {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -354,11 +351,12 @@ footer a:hover, footer afocus {
   color: #ffffff;
 }
 
-.makeupGallery .container .searchItem h3, .makeupGallery .container .searchItem h4, .makeupGallery .container .searchItem p {
+.makeupGallery .searchItem h3, .makeupGallery .searchItem h4, .makeupGallery .searchItem p {
   background: #a30015;
+  padding: 3px 5px;
 }
 
-.makeupGallery .container .searchItem img {
+.makeupGallery .searchItem img {
   margin: 0 auto 5px;
   color: #000000;
 }

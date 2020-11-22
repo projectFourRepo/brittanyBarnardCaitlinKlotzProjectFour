@@ -24,7 +24,21 @@ makeupApp.makeupPromise = (search) => {
     $.when(makeupProducts).then((result) => {
         makeupApp.displayMakeup(result, searchItems);
     }).fail(() => {
-        $(".makeupGallery .container").html("Sorry our search engine is down! Please try again later.");
+        $(".makeupGallery").html("Sorry our search engine is down! Please try again later.");
+        //on Sunday, we were experiencing 503 errors and it was suggested that we create some dummy data so you would be able to see how our app would work
+        $(".productType").html(searchItems);
+
+        for (i = 0; i < 3; i++) {
+            const htmlProduct = `
+                <div class="searchItem">
+                    <img src="http://lorempixel.com/200/200/fashion" alt="fashion placeholder image">
+                    <h3>Product Brand</h3>
+                    <h4>Name of Product</h4>
+                    <p>$26.00CAD</p>
+                </div>
+            `;
+        $(".makeupGallery").append(htmlProduct);
+        }
     });
 } 
 
@@ -34,8 +48,10 @@ makeupApp.displayMakeup = function(makeupItems, search) {
     const searchItem = search;
 
     //empty makeup gallery before returning next search
-    $(".makeupGallery .container").html("");
+    $(".makeupGallery").html("");
 
+    //set users search value to the heading in results container
+    $(".productType").html(searchItems);
     //move through array to find product_type property inside each object
     products.filter((product, index) => {
         if (product.product_type === searchItem){
@@ -45,10 +61,9 @@ makeupApp.displayMakeup = function(makeupItems, search) {
                     <h3>${product.brand}</h3>
                     <h4>${product.name}</h4>
                     <p>${product.price_sign} ${product.price.toFixed(2)} ${product.currency}</p>
-                    <p>${product.rating}</p>
                 </div>
             `;
-            $(".makeupGallery .container").append(htmlProduct);
+            $(".makeupGallery").append(htmlProduct);
         }
     });
 
@@ -97,6 +112,8 @@ makeupApp.createEventListeners = function() {
         const searchItems = $(this).val();
 
         // retrieve promise from ajax call
+
+
         makeupApp.makeupPromise(searchItems);
 
     })
