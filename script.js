@@ -1,3 +1,19 @@
+//STRETCH:
+    //search engine:
+    //form
+        //text field
+            //params(product type & category)
+            //stretch goal params: price/price range, product brand & tags
+        //submit button
+            //prevent default
+        //label for text field
+    //create <p> tag
+        //set a starting number of stock
+        //decrease stock
+    //display number in each result
+    //buy now button
+    // drop down with search
+
 //create namespace
 const makeupApp = {};
 
@@ -70,42 +86,9 @@ makeupApp.displayMakeup = function(makeupItems, search) {
             $(".makeupContainer").append(htmlProduct);
         }
     });
-
-        //pass variable through relevant param
-        //compare search input available params
-        //to the lowercase value
-
-        // compare searchInput to product_type
-
-    //display input on page
-//print search on page param(stretch)
-//display results with tags (stretch)
-    //create html for the results
-        //img
-        //price
-        //name
-
 }
 
-//search engine:
-//form
-    //text field
-        //params(product type & category)
-        //stretch goal params: price/price range, product brand & tags
-    //submit button
-        //prevent default
-    //label for text field
 
-//take input
-
-//STRETCH:
-//create <p> tag
-    //set a starting number of stock
-    //decrease stock
-//display number in each result
-//buy now button
-
-// drop down with search
 
 // create an event listener to listen for when a search item has been clicked on
 makeupApp.createEventListeners = function() {
@@ -119,7 +102,6 @@ makeupApp.createEventListeners = function() {
 
         // retrieve promise from ajax call
         makeupApp.makeupPromise(searchItems);
-
     })
 }
 
